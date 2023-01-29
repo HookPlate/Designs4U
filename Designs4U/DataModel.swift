@@ -16,7 +16,7 @@ class DataModel: ObservableObject{
     //A subset of the people array based on what matches their queiry
     var searchResults: [Person] {
         people.filter { person in
-            //they type nothing, this person is definately in the final array because there's no text to match on. The way the guard works is if the expression evaluates to false then the code in the braces is executed. So if the searchText is empty, run the code in the braces (because if we just did .isEmpty it would be true and it would run the braces). The code in the braces asks the filter method to include this person in its new array
+            //they type nothing, this person is definately in the final array because there's no text to match on. The way the guard works is if the expression evaluates to false then the code in the braces is executed. So if the searchText is empty, run the code in the braces (because if we just did .isEmpty it would be true and it would run the braces). The code in the braces asks the filter method to include this person in its new array.
             guard searchText.isEmpty == false else { return true }
             //if we're still here it means they've typed some search text, which of those fields match that search text if any?
             //if any of those strings match (case insensitively) our searchText, return true.
