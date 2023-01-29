@@ -24,7 +24,6 @@ struct ContentView: View {
             }
             .navigationTitle("Designs4u")
         }
-        //kicks of the fetching when our program starts
         .task {
             do {
                 try await model.fetch()
