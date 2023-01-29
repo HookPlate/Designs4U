@@ -15,7 +15,6 @@ struct ContentView: View {
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    //use only the ones who ,m,atch our search text.
                     ForEach(model.searchResults) { person in
                         DesignerRow(person: person, model: model)
                     }
@@ -23,7 +22,6 @@ struct ContentView: View {
                 .padding(.horizontal)
             }
             .navigationTitle("Designs4u")
-            //we get basic searching up and running by adding a single modifier to our model, this gives us the search bar below the nav title.
             .searchable(text: $model.searchText)
         }
         .task {
