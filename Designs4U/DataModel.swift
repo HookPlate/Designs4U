@@ -13,13 +13,18 @@ class DataModel: ObservableObject{
     @Published var people = [Person]()
 
     @Published var searchText = ""
-    //an array of skills they've asked to see
-    @Published var tokens = [Skill]()
-    //what are all the skills they can choose from? This one won't change dynamically, unlike the above.
-    private var allSkills = [Skill]()
 
+    @Published var tokens = [Skill]()
+
+    private var allSkills = [Skill]()
+    //we upgrade this to not only show search results but also tokens = don't show Jaimie if they've asked for autocad skills.
     var searchResults: [Person] {
+        //the tokens array has to be an array (maybe because it's @Published?) but we can turn it into a set here. We do it so we can get the functionality () from set used justinside the closure of filter *
+        let setTokens = Set(tokens)
+        //we had to add return once we'd added the above, maybe this is because the above is considered a getter and we now need to give a setter?
         return people.filter { person in
+            //*
+            guard person.skills.isSuperset(of: setTokens) else { return true }
             guard searchText.isEmpty == false else { return true }
             
             for string in [person.firstName, person.lastName, person.bio, person.details] {
@@ -36,11 +41,6 @@ class DataModel: ObservableObject{
 
         let (data, _) = try await URLSession.shared.data(from: url)
         people = try JSONDecoder().decode([Person].self, from: data)
-        //1. this saves us typing all the skills manually into our allSkills array
-        //2. people.map - give us all the people mapped into an array containing the sets of skills <photoshop, Illtustrator>, <cartoonist, artist> at this point plenty of duplicates
-        //3. .joined - converts the array of sets into a single array of information
-        //4. Set() - putting that through a Set() to remove duplicates
-        //5. .sorted() sort the result
         allSkills = Set(people.map(\.skills).joined()).sorted()
     }
 }
