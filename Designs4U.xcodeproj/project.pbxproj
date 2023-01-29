@@ -13,6 +13,7 @@
 		F119679A29858D9F00971BA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F119679929858D9F00971BA6 /* Preview Assets.xcassets */; };
 		F11967A129858DC800971BA6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11967A029858DC800971BA6 /* Person.swift */; };
 		F11967A329859D5600971BA6 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11967A229859D5600971BA6 /* DataModel.swift */; };
+		F19F153229865E0500A8363E /* DesignerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19F153129865E0500A8363E /* DesignerRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		F119679929858D9F00971BA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F11967A029858DC800971BA6 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		F11967A229859D5600971BA6 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		F19F153129865E0500A8363E /* DesignerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerRow.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		F119679129858D9F00971BA6 /* Designs4U */ = {
 			isa = PBXGroup;
 			children = (
+				F19F153129865E0500A8363E /* DesignerRow.swift */,
 				F11967A229859D5600971BA6 /* DataModel.swift */,
 				F119679229858D9F00971BA6 /* Designs4UApp.swift */,
 				F119679429858D9F00971BA6 /* ContentView.swift */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11967A129858DC800971BA6 /* Person.swift in Sources */,
+				F19F153229865E0500A8363E /* DesignerRow.swift in Sources */,
 				F11967A329859D5600971BA6 /* DataModel.swift in Sources */,
 				F119679529858D9F00971BA6 /* ContentView.swift in Sources */,
 				F119679329858D9F00971BA6 /* Designs4UApp.swift in Sources */,

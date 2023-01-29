@@ -17,7 +17,8 @@ struct ContentView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(model.people) { person in
-                        Text(person.displayName)
+                        //passes both the person and model into our cutom row
+                        DesignerRow(person: person, model: model)
                     }
                 }
                 .padding(.horizontal)
