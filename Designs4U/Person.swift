@@ -3,7 +3,7 @@
 //  Designs4U
 //
 //  Created by Yoli on 28/01/2023.
-//
+//Our Model
 
 import Foundation
 
@@ -34,23 +34,24 @@ struct Person: Comparable, Decodable, Identifiable {
     }
     
     static let example = Person(id: 1, photo: URL(string: "https://hws.dev/img/user-1-full.jpg")!, thumbnail: URL(string: "https://hws.dev/img/user-1-thumb.jpg")!, firstName: "Jaime", lastName: "Rove", email: "jrove1@huffingtonpost.com", experience: 10, rate: 300, bio: "A few lines about this person go here.", details: "A couple more sentences about this person go here.", skills: [Skill("Illustrator"), Skill("Photoshop")], tags: ["ideator", "aligned", "manager", "excitable"])
+    
+}
 
-    struct Skill: Comparable, Decodable, Hashable, Identifiable {
-        var id: String
-        
-        init(_ id: String) {
-            self.id = id
-        }
-
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
-            self.id = try container.decode(String.self)
-        }
-        
-        static func <(lhs: Skill, rhs: Skill) -> Bool {
-            lhs.id < rhs.id
-        }
+//We made the Skills for our people into it's own unique struct so we could add search tokens, it requires the identifiable protocol. If we'd had plain strings it wouldn't have worked here.
+struct Skill: Comparable, Decodable, Hashable, Identifiable {
+    var id: String
+    
+    init(_ id: String) {
+        self.id = id
     }
     
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        self.id = try container.decode(String.self)
+    }
+    
+    static func <(lhs: Skill, rhs: Skill) -> Bool {
+        lhs.id < rhs.id
+    }
 }
