@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    //I want to create the model here and observe it - see comparison with @ObservedObject in DesignerRow.
     @StateObject private var model = DataModel()
     
     
@@ -17,7 +16,6 @@ struct ContentView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(model.people) { person in
-                        //passes both the person and model into our cutom row
                         DesignerRow(person: person, model: model)
                     }
                 }
