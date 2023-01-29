@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    //I want to create the model here and observe it - see comparison with @ObservedObject in DesignerRow.
     @StateObject private var model = DataModel()
     
     

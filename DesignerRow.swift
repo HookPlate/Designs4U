@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DesignerRow: View {
     var person: Person
-    
+    //I expect to be given DataModel and I want to watch for changes but I don't want to actuslly create it. See comparison to @StateObject in ContentView.
     @ObservedObject var model: DataModel
     
     var body: some View {
