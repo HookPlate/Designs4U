@@ -15,6 +15,7 @@ class DataModel: ObservableObject{
     
     func fetch() async throws {
         let url = URL(string: "https://hws.dev/designers.json")!
+        //despite MainActor above the await below marks a potential suspension point, meaning it can happen at any point on any thread.
         let (data, _) = try await URLSession.shared.data(from: url)
         people = try JSONDecoder().decode([Person].self, from: data)
     }
