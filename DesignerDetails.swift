@@ -59,6 +59,13 @@ struct DesignerDetails: View {
                         .init(color: .clear, location: 1)
                     ], startPoint: .leading, endPoint: .trailing)
                 )
+                //uses markdown and automatic grammar agreement (first line with year/years) ** makes something bold in markdown I suppose
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("**Experience:** ^[\(person.experience) years](inflect: true)")
+                    Text("**Rate:** $\(person.rate)")
+                    Text("**Contact:** \(person.email)")
+                }
+                .padding()
             }
             .padding(.vertical)
         }
