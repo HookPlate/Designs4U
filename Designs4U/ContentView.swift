@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var model = DataModel()
+    //this declares a little pot basically, in which each view id will appear only once
+    @Namespace var nameSpace
     
     
     var body: some View {
@@ -16,7 +18,7 @@ struct ContentView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(model.searchResults) { person in
-                        DesignerRow(person: person, model: model)
+                        DesignerRow(person: person, model: model, namespace: nameSpace)
                     }
                 }
                 .padding(.horizontal)
@@ -36,7 +38,7 @@ struct ContentView: View {
                             ForEach(model.selected) { person in
                                 Button {
                                     withAnimation {
-                                        //means that once they're in the bottom selected area we can still tap to remove them. 
+                                        //means that once they're in the bottom selected area we can still tap to remove them.
                                         model.remove(person)
                                     }
                                 } label: {
@@ -51,6 +53,8 @@ struct ContentView: View {
                                 }
                                 //means it won't animate too much on the screen
                                 .buttonStyle(.plain)
+                                //so inside the 'namespace' pot of names this view is id number.. we need this same modifier attached to the designerRow, the thing we're moving from
+                                .matchedGeometryEffect(id: person.id, in: nameSpace)
                             }
                         }
                         //continue button which is basically a nav link for when they have some designers selected and they want to 'go' and it'll show them whatever, available date/times etc.
