@@ -16,7 +16,8 @@ class DataModel: ObservableObject{
 
     @Published var tokens = [Skill]()
     
-    @Published private (set) var selected = [Person]()
+    @Published private (set) var selected = [Person]()    
+    
 
     private var allSkills = [Skill]()
 
