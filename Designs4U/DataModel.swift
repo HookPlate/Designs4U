@@ -15,7 +15,7 @@ class DataModel: ObservableObject{
     @Published var searchText = ""
 
     @Published var tokens = [Skill]()
-    //who we want to store in the selection. private (set) is access control. You can read this thing freely externally but you can't change it wothout asking me first. Hence the select and remove methods.
+    
     @Published private (set) var selected = [Person]()
 
     private var allSkills = [Skill]()
@@ -26,7 +26,6 @@ class DataModel: ObservableObject{
 
         return people.filter { person in
             guard person.skills.isSuperset(of: setTokens) else { return false }
-            //This means that if they've already been selected, don't show them in the search results: If the selected array contains that person don't include them in the new filter array. Needs to be done before the next line. 
             guard selected.contains(person) == false else { return false }
             guard searchText.isEmpty == false else { return true }
             
