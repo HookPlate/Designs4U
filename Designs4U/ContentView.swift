@@ -61,7 +61,8 @@ struct ContentView: View {
                         NavigationLink {
                             //Go to the next screen
                         } label: {
-                            Text("Select \(model.selected.count) Person")
+                            //crazy automatic way of dealing with pluralization. It inflects all sorts of words for you automatically goose > geese etc it's called automatic grammer agreement
+                            Text("Select ^[\(model.selected.count) Person](inflect: true)")
                             //will stretch the button across the whole screens width, the min height of 44 is a recomendation from apple
                                 .frame(maxWidth: .infinity, minHeight: 44)
                         }
