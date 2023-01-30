@@ -13,7 +13,12 @@ struct DesignerRow: View {
     var body: some View {
         HStack {
             Button {
-                //select this designer
+                //where we want to select the designer, we'll not let them select more than 5
+                guard model.selected.count < 5 else { return }
+                // if you look back at DataModel, when we add a person to selected it'll exclude them from the search results, so we need a seperate place to add them to the search results.
+                withAnimation {
+                    model.select(person)
+                }
             } label: {
                 HStack {
                     AsyncImage(url: person.thumbnail, scale: 3)
