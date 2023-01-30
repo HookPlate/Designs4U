@@ -22,9 +22,7 @@ struct ContentView: View {
                 .padding(.horizontal)
             }
             .navigationTitle("Designs4u")
-            //for the more advanced searchable with tokens we need to say where we are storing our tokens (tokens:), then what list we want to show to the user (suggestedTokens:), a prompt so the user knows about the # rule. Then it wants to be given a trailing closure that knows how to convert one search token into something you can show in the UI.
             .searchable(text: $model.searchText, tokens: $model.tokens, suggestedTokens: model.suggestedTokens, prompt: Text("Search, or use # to select skills")) { token in
-                //this works thanks to us casting into a Skill and giving it an ID
                 Text(token.id)
             }
         }

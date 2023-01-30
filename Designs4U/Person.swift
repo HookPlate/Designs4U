@@ -29,7 +29,6 @@ struct Person: Comparable, Decodable, Identifiable {
     
 
     static func <(lhs: Person, rhs: Person) -> Bool {
-        //sort based on the lastname of the Person
         lhs.lastName < rhs.lastName
     }
     
@@ -37,7 +36,6 @@ struct Person: Comparable, Decodable, Identifiable {
     
 }
 
-//We made the Skills for our people into it's own unique struct so we could add search tokens, it requires the identifiable protocol. If we'd had plain strings it wouldn't have worked here.
 struct Skill: Comparable, Decodable, Hashable, Identifiable {
     var id: String
     
