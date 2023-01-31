@@ -9,7 +9,6 @@ import SwiftUI
 struct DesignerRow: View {
     var person: Person
     
-    //we want to pass in the property from the tapping of the Info button with this. That is not going to be  @State (make it locally) or an ObservedObject (its a simple struct it can't be that) instead it'll be @Binding - watch some value controlled elsewhere.
     @Binding var selectedDesigner: Person?
     
     @ObservedObject var model: DataModel
@@ -44,7 +43,6 @@ struct DesignerRow: View {
             Spacer()
             
             Button {
-                //when user taps change that binding to the current person
                 selectedDesigner = person
             } label: {
                 Image(systemName: "info.circle")

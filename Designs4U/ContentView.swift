@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var model = DataModel()
-    //we want to modify this single shared property from inside our rows. When we tap on the Info button, modify this property here. This is the Binding from DesignerRow that we pass in on line 23.
+
     @State private var selectedDesigner: Person?
     
     @Namespace var nameSpace
@@ -19,7 +19,6 @@ struct ContentView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(model.searchResults) { person in
-                        //here we tell the DesignerRow which proeprty to bind its binding to
                         DesignerRow(person: person, selectedDesigner: $selectedDesigner, model: model, namespace: nameSpace)
                     }
                 }
@@ -29,7 +28,6 @@ struct ContentView: View {
             .searchable(text: $model.searchText, tokens: $model.tokens, suggestedTokens: model.suggestedTokens, prompt: Text("Search, or use # to select skills")) { token in
                 Text(token.id)
             }
-            //this init from sheet watches for some kind of Identifiable property that might be nil. When we tap on the info button it'll set this value (the selectDesigner) and trigger this. 
             .sheet(item: $selectedDesigner, content: DesignerDetails.init)
             .safeAreaInset(edge: .bottom) {
                 if model.selected.isEmpty == false {
