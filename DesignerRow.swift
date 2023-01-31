@@ -19,7 +19,6 @@ struct DesignerRow: View {
         HStack {
             Button {
                 guard model.selected.count < 5 else { return }
-                //again this animates our matchedGeometry effect.
                 withAnimation {
                     model.select(person)
                 }
