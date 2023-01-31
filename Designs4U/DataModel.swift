@@ -13,11 +13,10 @@ class DataModel: ObservableObject{
     @Published var people = [Person]()
 
     @Published var searchText = ""
-
+//powered by searchable in contentView
     @Published var tokens = [Skill]()
-    
+    //viewed by the area at the bottom of ContentView for selected designers
     @Published private (set) var selected = [Person]()    
-    
 
     private var allSkills = [Skill]()
 

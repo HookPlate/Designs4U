@@ -35,6 +35,7 @@ struct ContentView: View {
                         HStack(spacing: -10) {
                             ForEach(model.selected) { person in
                                 Button {
+                                    //this is what does the animation for MatchedGeometryEffect
                                     withAnimation {
                                         model.remove(person)
                                     }

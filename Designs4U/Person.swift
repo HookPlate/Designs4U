@@ -36,6 +36,7 @@ struct Person: Comparable, Decodable, Identifiable {
     
 }
 
+//In order to support tokens we can't us .self as an Identifier like in ForEach. We need to manually make an ID ourselves in order to support Identifiable.
 struct Skill: Comparable, Decodable, Hashable, Identifiable {
     var id: String
     
@@ -45,6 +46,7 @@ struct Skill: Comparable, Decodable, Hashable, Identifiable {
     
     
     init(from decoder: Decoder) throws {
+        //Here's where we tell swift that the Struct isn't some complex object, it's just a String. Read it out from that entire String, don't try and read keys inside there using CodingKeys etc, the whole container is our String: .singleValueContainer
         let container = try decoder.singleValueContainer()
         self.id = try container.decode(String.self)
     }
